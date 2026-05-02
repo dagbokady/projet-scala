@@ -1,0 +1,11 @@
+id_inscription,matricule,filiere,niveau,annee,statut
+INS001,ETU001,Informatique,M1,2025-2026,Validee
+INS002,ETU002,Informatique,M1,2025-2026,Validee
+INS003,ETU003,Data Science,M1,2025-2026,Validee
+INS004,ETU004,Cybersecurite,M1,2025-2026,Validee
+INS005,ETU005,Informatique,M2,2025-2026,Validee
+INS006,ETU006,Data Science,M1,2025-2026,Validee
+INS007,ETU007,Cybersecurite,M2,2025-2026,En attente
+INS008,ETU008,Informatique,M1,2025-2026,Validee
+INS009,ETU009,Data Science,M2,2025-2026,Validee
+INS010,ETU010,Cybersecurite,M1,2025-2026,Validee
