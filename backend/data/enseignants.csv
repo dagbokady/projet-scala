@@ -1,0 +1,6 @@
+id_enseignant,nom,prenom,grade,specialite,departement,email,telephone
+ENS001,KOFFI,Daniel,Docteur,Scala et Big Data,Informatique,daniel.koffi@univ.edu,0100000001
+ENS002,OUATTARA,Marie,Maitre Assistant,Bases de donnees,Informatique,marie.ouattara@univ.edu,0100000002
+ENS003,KONE,Ibrahim,Professeur,Intelligence Artificielle,Data Science,ibrahim.kone@univ.edu,0100000003
+ENS004,ADOU,Carine,Docteur,Cybersecurite,Cybersecurite,carine.adou@univ.edu,0100000004
+ENS005,YAPO,Michel,Docteur,Systemes distribues,Informatique,michel.yapo@univ.edu,0100000005
