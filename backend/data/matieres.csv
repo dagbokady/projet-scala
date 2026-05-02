@@ -1,0 +1,7 @@
+id_matiere,nom_matiere,ue,coefficient,volume_horaire,enseignant
+MAT001,Programmation Scala,UE Programmation,4,36,ENS001
+MAT002,Bases de donnees avancees,UE Donnees,3,30,ENS002
+MAT003,Big Data,UE Donnees,4,36,ENS005
+MAT004,Machine Learning,UE Intelligence Artificielle,4,36,ENS003
+MAT005,Cryptographie,UE Cybersecurite,3,30,ENS004
+MAT006,Systemes distribues,UE Architecture,3,30,ENS005
