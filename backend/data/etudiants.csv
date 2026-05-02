@@ -1,0 +1,11 @@
+matricule,nom,prenom,sexe,date_naissance,email,telephone,filiere,niveau,annee,statut
+ETU001,KOFFI,Jean,M,2001-04-12,jean.koffi@mail.com,0700000001,Informatique,M1,2025-2026,Actif
+ETU002,KOUAME,Aya,F,2002-07-20,aya.kouame@mail.com,0700000002,Informatique,M1,2025-2026,Actif
+ETU003,TRAORE,Moussa,M,2000-11-05,moussa.traore@mail.com,0700000003,Data Science,M1,2025-2026,Actif
+ETU004,DIABATE,Fatou,F,2001-09-14,fatou.diabate@mail.com,0700000004,Cybersecurite,M1,2025-2026,Actif
+ETU005,AKA,Eric,M,1999-02-18,eric.aka@mail.com,0700000005,Informatique,M2,2025-2026,Actif
+ETU006,YAO,Clarisse,F,2002-01-30,clarisse.yao@mail.com,0700000006,Data Science,M1,2025-2026,Actif
+ETU007,NGUESSAN,Paul,M,2001-05-10,paul.nguessan@mail.com,0700000007,Cybersecurite,M2,2025-2026,Suspendu
+ETU008,COULIBALY,Mariam,F,2000-03-22,mariam.coulibaly@mail.com,0700000008,Informatique,M1,2025-2026,Actif
+ETU009,BAMBA,Serge,M,2002-06-08,serge.bamba@mail.com,0700000009,Data Science,M2,2025-2026,Actif
+ETU010,GNAGNE,Estelle,F,2001-12-01,estelle.gnagne@mail.com,0700000010,Cybersecurite,M1,2025-2026,Actif
