@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gestion-universitaire-scala/gestion-universitaire-scala.iml" filepath="$PROJECT_DIR$/.idea/modules/gestion-universitaire-scala/gestion-universitaire-scala.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gestion-universitaire-scala/gestion-universitaire-scala.gestion-universitaire-scala-build.iml" filepath="$PROJECT_DIR$/.idea/modules/gestion-universitaire-scala/gestion-universitaire-scala.gestion-universitaire-scala-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gestion-universitaire-scala/gestion-universitaire-scala.main.iml" filepath="$PROJECT_DIR$/.idea/modules/gestion-universitaire-scala/gestion-universitaire-scala.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gestion-universitaire-scala/gestion-universitaire-scala.test.iml" filepath="$PROJECT_DIR$/.idea/modules/gestion-universitaire-scala/gestion-universitaire-scala.test.iml" />
+    </modules>
+  </component>
+</project>
