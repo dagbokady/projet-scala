@@ -1,0 +1,146 @@
+2026.05.05 07:38:24 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\DELL\Documents\projet-scala' for client Visual Studio Code 1.118.1.
+2026.05.05 07:38:24 INFO  Memory monitor started
+2026.05.05 07:38:26 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.05.05 07:38:26 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+mai 05, 2026 7:38:33 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+mai 05, 2026 7:38:33 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 5
+mai 05, 2026 7:38:33 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+2026.05.05 07:38:33 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:45:49 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:47:24 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:47:24 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+mai 05, 2026 7:47:24 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 8
+2026.05.05 07:47:24 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:47:43 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:47:43 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:47:43 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:47:43 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:47:43 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:47:43 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+mai 05, 2026 7:47:43 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16
+2026.05.05 07:48:03 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:08 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:08 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:08 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:08 WARN  Could not find semantic tokens for: file:///C:/Users/DELL/Documents/projet-scala/backend/project/plugins.sbt
+2026.05.05 07:48:11 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:11 WARN  Could not find semantic tokens for: file:///C:/Users/DELL/Documents/projet-scala/backend/project/plugins.sbt
+2026.05.05 07:48:13 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:13 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:13 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:13 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+mai 05, 2026 7:48:13 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 37
+mai 05, 2026 7:48:13 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 38
+2026.05.05 07:48:13 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:13 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:13 WARN  Could not find semantic tokens for: file:///C:/Users/DELL/Documents/projet-scala/backend/project/plugins.sbt
+2026.05.05 07:48:44 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\project\plugins.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:44 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+mai 05, 2026 7:48:44 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 56
+2026.05.05 07:48:44 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:44 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:46 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:47 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:47 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:47 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:47 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:47 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:47 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:48 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:48 WARN  no build target for: C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala
+2026.05.05 07:48:48 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Traits.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:58 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:48:58 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+mai 05, 2026 7:48:58 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 79
+2026.05.05 07:48:58 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:04 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:07 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:08 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:08 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:08 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:08 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:08 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:10 WARN  no build target for: C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala
+2026.05.05 07:49:10 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:10 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\model\Etudiant.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:17 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:18 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+mai 05, 2026 7:49:18 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 104
+mai 05, 2026 7:49:18 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 107
+2026.05.05 07:49:17 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:17 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:18 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:18 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:18 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:19 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:20 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:20 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:20 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:20 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:20 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:21 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:21 WARN  no build target for: C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala
+2026.05.05 07:49:21 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:21 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:31 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:31 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:31 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:31 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:32 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:32 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:33 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:33 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:33 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:33 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:34 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:34 WARN  no build target for: C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala
+2026.05.05 07:49:34 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:34 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:54 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:55 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:55 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:55 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:56 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:56 WARN  no build target for: C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala
+2026.05.05 07:49:56 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:56 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:49:56 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+mai 05, 2026 7:53:23 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+mai 05, 2026 7:53:25 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.05.05 07:53:26 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:53:52 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:53:56 WARN  no build target for: C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala
+2026.05.05 07:53:56 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:54:21 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\MainEtudiants.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:54:22 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:54:22 WARN  no build target for: C:\Users\DELL\Documents\projet-scala\backend\build.sbt
+2026.05.05 07:54:22 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:54:22 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:54:55 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:54:55 WARN  no build target for: C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala
+mai 05, 2026 7:54:55 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 211
+2026.05.05 07:54:55 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+mai 05, 2026 7:54:56 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 212
+2026.05.05 07:54:56 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:54:55 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:55:16 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\src\main\scala\universite\service\EtudiantService.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:55:17 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:55:17 WARN  no build target for: C:\Users\DELL\Documents\projet-scala\backend\build.sbt
+2026.05.05 07:55:17 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:55:17 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.05.05 07:55:17 INFO  no build target found for C:\Users\DELL\Documents\projet-scala\backend\build.sbt. Using presentation compiler with project's scala-library version: 3.3.7

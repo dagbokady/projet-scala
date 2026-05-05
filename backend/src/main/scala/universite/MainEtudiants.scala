@@ -18,7 +18,7 @@ object MainEtudiants extends App {
   // Recherche par matricule
   println("\n── Recherche ──")
   service.afficherEtudiant("ETU001")
-  service.afficherEtudiant("ETU999") // inexistant
+  service.afficherEtudiant("ETU999") // inexistant → None
 
   // Filtres
   println("\n── Étudiants en Informatique ──")

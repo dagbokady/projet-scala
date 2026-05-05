@@ -1,9 +1,5 @@
 package universite.model
 
-// ─────────────────────────────────────────────
-//  Traits partagés par tous les modules
-// ─────────────────────────────────────────────
-
 trait Identifiable {
   def id: String
 }

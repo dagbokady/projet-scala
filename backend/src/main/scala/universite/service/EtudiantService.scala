@@ -4,10 +4,6 @@ import universite.model._
 import scala.util.Try
 import scala.io.Source
 
-// ─────────────────────────────────────────────
-//  Module 1 : Service Étudiant
-// ─────────────────────────────────────────────
-
 class EtudiantService(private var etudiants: List[Etudiant] = List.empty) {
 
   // ── Chargement CSV ────────────────────────
@@ -79,9 +75,9 @@ class EtudiantService(private var etudiants: List[Etudiant] = List.empty) {
 
   def compterActifsRecursif(liste: List[Etudiant]): Int =
     liste match {
-      case Nil                                         => 0
+      case Nil                                    => 0
       case tete :: queue if tete.statut == Actif => 1 + compterActifsRecursif(queue)
-      case _ :: queue                                  => compterActifsRecursif(queue)
+      case _ :: queue                             => compterActifsRecursif(queue)
     }
 
   def afficherFiliereRecursif(liste: List[Etudiant], filiere: String): Unit =
