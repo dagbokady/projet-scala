@@ -33,7 +33,17 @@ object JsonFormats extends DefaultJsonProtocol {
   implicit val matiereFormat: RootJsonFormat[Matiere]       = jsonFormat6(Matiere)
   implicit val salleFormat:   RootJsonFormat[Salle]         = jsonFormat4(Salle)
 
-  implicit val enseignantFormat: RootJsonFormat[Enseignant] = jsonFormat8(Enseignant)
+  implicit val enseignantFormat: RootJsonFormat[Enseignant] = jsonFormat(
+    Enseignant,
+    "idEnseignant",
+    "nom",
+    "prenom",
+    "grade",
+    "specialite",
+    "departement",
+    "email",
+    "telephone"
+  )
 
   // ---------- Etudiant : encodage/decodage manuels (statut) ----------
   implicit object EtudiantFormat extends RootJsonFormat[Etudiant] {
