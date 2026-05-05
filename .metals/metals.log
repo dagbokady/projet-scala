@@ -48,3 +48,36 @@ WARNING: Unmatched cancel notification for request id 17
 2026.05.05 15:25:45 INFO  [success] Generated .bloop\projet-scala-test.json
 2026.05.05 15:25:45 INFO  [success] Total time: 22 s, completed 5 mai 2026, 15:25:45
 2026.05.05 15:25:46 INFO  time: ran 'sbt bloopInstall' in 1m9s
+2026.05.05 15:25:46 INFO  running 'C:\Program Files\Java\jdk-17\bin\java.exe -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar C:\Users\HP\AppData\Local\Temp\metals11051197826490370903\sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'
+2026.05.05 15:25:49 INFO  [info] welcome to sbt 1.12.5 (Oracle Corporation Java 17.0.14)
+2026.05.05 15:25:50 INFO  [info] loading settings for project projet-scala-build-build from metals.sbt...
+2026.05.05 15:25:52 INFO  [info] loading project definition from D:\Projet_Esatic\projet-scala\project\project
+2026.05.05 15:25:54 INFO  [info] loading settings for project projet-scala-build from metals.sbt...
+2026.05.05 15:25:54 INFO  [info] loading project definition from D:\Projet_Esatic\projet-scala\project
+2026.05.05 15:25:59 INFO  [success] Generated .bloop\projet-scala-build.json
+2026.05.05 15:25:59 INFO  [success] Total time: 5 s, completed 5 mai 2026, 15:25:59
+2026.05.05 15:25:59 INFO  [info] loading settings for project projet-scala from build.sbt...
+2026.05.05 15:25:59 INFO  [info] set current project to gestion-universitaire-scala (in build file:/D:/Projet_Esatic/projet-scala/)
+2026.05.05 15:26:04 INFO  [success] Generated .bloop\projet-scala-test.json
+2026.05.05 15:26:04 INFO  [success] Generated .bloop\projet-scala.json
+2026.05.05 15:26:04 INFO  [success] Total time: 4 s, completed 5 mai 2026, 15:26:04
+2026.05.05 15:26:04 INFO  time: ran 'sbt bloopInstall' in 18s
+2026.05.05 15:26:04 INFO  Attempting to connect to the build server...
+2026.05.05 15:26:04 INFO  Found a Bloop server running
+2026.05.05 15:26:04 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at D:\Projet_Esatic\projet-scala\.metals\bsp.trace.json or C:\Users\HP\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.05.05 15:26:16 INFO  Attempting to connect to the build server...
+2026.05.05 15:26:16 INFO  Found a Bloop server running
+2026.05.05 15:26:16 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at D:\Projet_Esatic\projet-scala\project\.metals\bsp.trace.json or C:\Users\HP\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.05.05 15:26:32 INFO  time: Connected to build server in 28s
+2026.05.05 15:26:32 INFO  Connected to Build server: Bloop v2.0.19
+2026.05.05 15:26:33 INFO  time: Imported build in 0.17s
+mai 05, 2026 3:26:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28
+2026.05.05 15:26:47 INFO  compiling projet-scala (9 scala sources)
+2026.05.05 15:26:47 INFO  Non-compiled module 'compiler-bridge_2.12' for Scala 2.12.18. Compiling...
+2026.05.05 15:27:02 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.05.05 15:27:13 INFO  Compilation completed in 25.34s.
+2026.05.05 15:27:28 INFO  time: compiled projet-scala in 40s
+2026.05.05 15:27:51 INFO  time: indexed workspace in 1m18s
+mai 05, 2026 3:41:10 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
