@@ -4,7 +4,6 @@ import universite.db.Database
 import universite.model.SeanceCours
 
 import java.sql.{ResultSet, Time}
-import java.time.LocalTime
 import scala.collection.mutable.ListBuffer
 import scala.util.{Try, Using}
 

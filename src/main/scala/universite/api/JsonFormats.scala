@@ -29,21 +29,65 @@ object JsonFormats extends DefaultJsonProtocol {
     }
   }
 
+  // ---------- Formats Map[String, _] manquants dans spray-json ----------
+  // spray-json ne fournit pas ces formats automatiquement pour Map.
+  implicit object MapStringIntFormat extends RootJsonFormat[Map[String, Int]] {
+    override def write(m: Map[String, Int]): JsValue =
+      JsObject(m.map { case (k, v) => k -> JsNumber(v) })
+    override def read(v: JsValue): Map[String, Int] = v.asJsObject.fields.map {
+      case (k, JsNumber(n)) => k -> n.toInt
+      case (k, _)           => k -> 0
+    }
+  }
+  implicit object MapStringDoubleFormat extends RootJsonFormat[Map[String, Double]] {
+    override def write(m: Map[String, Double]): JsValue =
+      JsObject(m.map { case (k, v) => k -> JsNumber(BigDecimal(v).setScale(4, BigDecimal.RoundingMode.HALF_UP)) })
+    override def read(v: JsValue): Map[String, Double] = v.asJsObject.fields.map {
+      case (k, JsNumber(n)) => k -> n.toDouble
+      case (k, _)           => k -> 0.0
+    }
+  }
+  implicit object MapStringStringFormat extends RootJsonFormat[Map[String, String]] {
+    override def write(m: Map[String, String]): JsValue =
+      JsObject(m.map { case (k, v) => k -> JsString(v) })
+    override def read(v: JsValue): Map[String, String] = v.asJsObject.fields.map {
+      case (k, JsString(s)) => k -> s
+      case (k, other)       => k -> other.toString
+    }
+  }
+
   // ---------- Modeles de base ----------
   implicit val matiereFormat: RootJsonFormat[Matiere]       = jsonFormat6(Matiere)
   implicit val salleFormat:   RootJsonFormat[Salle]         = jsonFormat4(Salle)
+  implicit val filiereFormat: RootJsonFormat[Filiere]       = jsonFormat3(Filiere)
 
-  implicit val enseignantFormat: RootJsonFormat[Enseignant] = jsonFormat(
-    Enseignant,
-    "idEnseignant",
-    "nom",
-    "prenom",
-    "grade",
-    "specialite",
-    "departement",
-    "email",
-    "telephone"
-  )
+  // Enseignant hérite de Personne → spray-json ne peut pas utiliser jsonFormat8
+  // automatiquement sur une case class avec des champs hérités, on le fait manuellement.
+  implicit object EnseignantFormat extends RootJsonFormat[Enseignant] {
+    override def write(e: Enseignant): JsValue = JsObject(
+      "idEnseignant" -> JsString(e.idEnseignant),
+      "nom"          -> JsString(e.nom),
+      "prenom"       -> JsString(e.prenom),
+      "grade"        -> JsString(e.grade),
+      "specialite"   -> JsString(e.specialite),
+      "departement"  -> JsString(e.departement),
+      "email"        -> JsString(e.email),
+      "telephone"    -> JsString(e.telephone)
+    )
+    override def read(v: JsValue): Enseignant = {
+      val o = v.asJsObject
+      Enseignant(
+        idEnseignant = o.fields("idEnseignant").convertTo[String],
+        nom          = o.fields("nom").convertTo[String],
+        prenom       = o.fields("prenom").convertTo[String],
+        grade        = o.fields.get("grade").map(_.convertTo[String]).getOrElse(""),
+        specialite   = o.fields.get("specialite").map(_.convertTo[String]).getOrElse(""),
+        departement  = o.fields.get("departement").map(_.convertTo[String]).getOrElse(""),
+        email        = o.fields.get("email").map(_.convertTo[String]).getOrElse(""),
+        telephone    = o.fields.get("telephone").map(_.convertTo[String]).getOrElse("")
+      )
+    }
+  }
 
   // ---------- Etudiant : encodage/decodage manuels (statut) ----------
   implicit object EtudiantFormat extends RootJsonFormat[Etudiant] {
@@ -129,4 +173,63 @@ object JsonFormats extends DefaultJsonProtocol {
   // Conflits emploi du temps
   case class ConflitInfo(seanceA: SeanceCours, seanceB: SeanceCours, raison: String)
   implicit val conflitFormat: RootJsonFormat[ConflitInfo] = jsonFormat3(ConflitInfo)
+
+  // ---------- Inscription ----------
+  implicit object InscriptionFormat extends RootJsonFormat[Inscription] {
+    override def write(i: Inscription): JsValue = JsObject(
+      "idInscription" -> JsString(i.idInscription),
+      "matricule"     -> JsString(i.matricule),
+      "filiere"       -> JsString(i.filiere),
+      "niveau"        -> JsString(i.niveau),
+      "annee"         -> JsString(i.annee),
+      "statut"        -> JsString(StatutInscription.toString(i.statut))
+    )
+    override def read(v: JsValue): Inscription = {
+      val o = v.asJsObject
+      Inscription(
+        idInscription = o.fields.get("idInscription").collect { case JsString(s) => s }.getOrElse(""),
+        matricule     = o.fields("matricule").convertTo[String],
+        filiere       = o.fields("filiere").convertTo[String],
+        niveau        = o.fields("niveau").convertTo[String],
+        annee         = o.fields("annee").convertTo[String],
+        statut        = o.fields.get("statut") match {
+          case Some(JsString(s)) => StatutInscription.fromString(s)
+          case _                 => StatutInscription.EnAttente
+        }
+      )
+    }
+  }
+
+  // ---------- Paiement ----------
+  implicit object PaiementFormat extends RootJsonFormat[Paiement] {
+    override def write(p: Paiement): JsValue = JsObject(
+      "idPaiement"    -> JsString(p.idPaiement),
+      "matricule"     -> JsString(p.matricule),
+      "montantTotal"  -> JsNumber(p.montantTotal),
+      "montantPaye"   -> JsNumber(p.montantPaye),
+      "datePaiement"  -> p.datePaiement.map(_.toJson).getOrElse(JsNull),
+      "mode"          -> JsString(ModePaiement.toString(p.mode)),
+      "reste"         -> JsNumber(p.reste),
+      "tauxPaiement"  -> JsNumber(BigDecimal(p.tauxPaiement).setScale(4, BigDecimal.RoundingMode.HALF_UP)),
+      "estSolde"      -> JsBoolean(p.estSolde)
+    )
+    override def read(v: JsValue): Paiement = {
+      val o = v.asJsObject
+      Paiement(
+        idPaiement   = o.fields.get("idPaiement").collect { case JsString(s) => s }.getOrElse(""),
+        matricule    = o.fields("matricule").convertTo[String],
+        montantTotal = o.fields("montantTotal").convertTo[Double],
+        montantPaye  = o.fields("montantPaye").convertTo[Double],
+        datePaiement = o.fields.get("datePaiement").flatMap {
+          case JsNull       => None
+          case JsString(s)  => Some(LocalDate.parse(s))
+          case _            => None
+        },
+        mode         = o.fields.get("mode") match {
+          case Some(JsString(s)) => ModePaiement.fromString(s)
+          case _                 => ModePaiement.Inconnu
+        }
+      )
+    }
+  }
 }

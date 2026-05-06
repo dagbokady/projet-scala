@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestion Universitaire — Notes, Absences, Emplois du temps</title>
+  <title>Universitas — Plateforme académique</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <!-- Sidebar -->
+  <!-- ========================= Sidebar ========================= -->
   <aside class="sidebar">
     <div class="brand">
       <div class="brand-mark">U<span class="brand-mark-dot">.</span></div>
@@ -22,7 +22,37 @@
     </div>
 
     <nav class="nav">
-      <button class="nav-item is-active" data-view="notes">
+      <div class="nav-section">Pilotage</div>
+      <button class="nav-item is-active" data-view="dashboard">
+        <span class="nav-num">09</span>
+        <span class="nav-label">Tableau de bord</span>
+        <span class="nav-arrow">→</span>
+      </button>
+
+      <div class="nav-section">Référentiels</div>
+      <button class="nav-item" data-view="etudiants">
+        <span class="nav-num">01</span>
+        <span class="nav-label">Étudiants</span>
+        <span class="nav-arrow">→</span>
+      </button>
+      <button class="nav-item" data-view="enseignants">
+        <span class="nav-num">02</span>
+        <span class="nav-label">Enseignants</span>
+        <span class="nav-arrow">→</span>
+      </button>
+      <button class="nav-item" data-view="formations">
+        <span class="nav-num">03</span>
+        <span class="nav-label">Formations</span>
+        <span class="nav-arrow">→</span>
+      </button>
+      <button class="nav-item" data-view="inscriptions">
+        <span class="nav-num">04</span>
+        <span class="nav-label">Inscriptions</span>
+        <span class="nav-arrow">→</span>
+      </button>
+
+      <div class="nav-section">Académique</div>
+      <button class="nav-item" data-view="notes">
         <span class="nav-num">05</span>
         <span class="nav-label">Notes</span>
         <span class="nav-arrow">→</span>
@@ -37,6 +67,18 @@
         <span class="nav-label">Emplois du temps</span>
         <span class="nav-arrow">→</span>
       </button>
+
+      <div class="nav-section">Finance & Data</div>
+      <button class="nav-item" data-view="paiements">
+        <span class="nav-num">08</span>
+        <span class="nav-label">Paiements</span>
+        <span class="nav-arrow">→</span>
+      </button>
+      <button class="nav-item" data-view="bigdata">
+        <span class="nav-num">10</span>
+        <span class="nav-label">Big Data</span>
+        <span class="nav-arrow">→</span>
+      </button>
     </nav>
 
     <div class="sidebar-footer">
@@ -44,55 +86,281 @@
         <span class="status-dot"></span>
         <span id="api-status">API connectée</span>
       </div>
-      <div class="muted">v1.0 — Scala + PostgreSQL</div>
+      <div class="muted">v2.0 — Scala + PostgreSQL</div>
     </div>
   </aside>
 
-  <!-- Main content -->
+  <!-- ========================= Main ========================= -->
   <main class="main">
 
-    <!-- ===================== NOTES VIEW ===================== -->
-    <section class="view is-active" id="view-notes">
+    <!-- ============== DASHBOARD (Module 9) ============== -->
+    <section class="view is-active" id="view-dashboard">
+      <header class="page-head">
+        <div>
+          <div class="page-eyebrow">Module 09</div>
+          <h1 class="page-title">Tableau <em>de bord</em></h1>
+          <p class="page-lede">Vue synthétique de l'établissement : étudiants, réussite, absentéisme, finances et étudiants à risque.</p>
+        </div>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Étudiants</div><div class="kpi-value" id="dash-etu">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Enseignants</div><div class="kpi-value" id="dash-ens">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Filières</div><div class="kpi-value" id="dash-fil">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Matières</div><div class="kpi-value" id="dash-mat">—</div></div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Moyenne globale</div><div class="kpi-value" id="dash-moy">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Taux de réussite</div><div class="kpi-value" id="dash-reussite">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Taux de recouvrement</div><div class="kpi-value" id="dash-recouv">—</div></div>
+        <div class="kpi-card kpi-warn"><div class="kpi-label">Étudiants à risque</div><div class="kpi-value" id="dash-risque">—</div></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <h3>Top 5 étudiants</h3>
+            <p class="muted">Meilleures moyennes pondérées.</p>
+          </div>
+          <div id="dash-top5"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Étudiants à risque</h3>
+            <p class="muted">Moyenne &lt; 10 ou absences &ge; 10h.</p>
+          </div>
+          <div id="dash-risk-list"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <h3>Taux de réussite par filière</h3>
+          </div>
+          <div id="dash-reussite-fil" class="bars"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Synthèse financière par filière</h3>
+          </div>
+          <div id="dash-fin-fil" class="bars"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ÉTUDIANTS (Module 1) ============== -->
+    <section class="view" id="view-etudiants">
+      <header class="page-head">
+        <div>
+          <div class="page-eyebrow">Module 01</div>
+          <h1 class="page-title">Gestion <em>des étudiants</em></h1>
+          <p class="page-lede">Inscription, modification, recherche et filtrage des étudiants par filière, niveau et statut.</p>
+        </div>
+        <button class="btn btn-primary" id="btn-new-etu"><span>+</span> Nouvel étudiant</button>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Total</div><div class="kpi-value" id="kpi-etu-total">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Actifs</div><div class="kpi-value" id="kpi-etu-actifs">—</div></div>
+        <div class="kpi-card kpi-warn"><div class="kpi-label">Suspendus</div><div class="kpi-value" id="kpi-etu-susp">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Diplômés</div><div class="kpi-value" id="kpi-etu-dipl">—</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-toolbar">
+          <input type="search" id="etu-search" placeholder="Rechercher par matricule…" class="input"/>
+          <select id="etu-filter-filiere" class="input"><option value="">Toutes filières</option></select>
+          <select id="etu-filter-niveau" class="input">
+            <option value="">Tous niveaux</option><option>L1</option><option>L2</option><option>L3</option><option>M1</option><option>M2</option>
+          </select>
+          <select id="etu-filter-statut" class="input">
+            <option value="">Tous statuts</option><option>Actif</option><option>Suspendu</option><option>Diplome</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr>
+              <th>Matricule</th><th>Nom complet</th><th>Filière</th><th>Niveau</th><th>Email</th><th>Statut</th><th></th>
+            </tr></thead>
+            <tbody id="etu-tbody"><tr><td colspan="7" class="empty">Chargement…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ENSEIGNANTS (Module 2) ============== -->
+    <section class="view" id="view-enseignants">
+      <header class="page-head">
+        <div>
+          <div class="page-eyebrow">Module 02</div>
+          <h1 class="page-title">Gestion <em>des enseignants</em></h1>
+          <p class="page-lede">Enseignants par département, cours assurés et volume horaire.</p>
+        </div>
+        <button class="btn btn-primary" id="btn-new-ens"><span>+</span> Nouvel enseignant</button>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Total</div><div class="kpi-value" id="kpi-ens-total">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Départements</div><div class="kpi-value" id="kpi-ens-dep">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Volume max</div><div class="kpi-value" id="kpi-ens-volume">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Spécialités</div><div class="kpi-value" id="kpi-ens-spec">—</div></div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab is-active" data-tab="tab-ens-liste">Liste</button>
+        <button class="tab" data-tab="tab-ens-volume">Top volume horaire</button>
+        <button class="tab" data-tab="tab-ens-departement">Par département</button>
+      </div>
+
+      <div class="tab-panel is-active" id="tab-ens-liste">
+        <div class="card">
+          <div class="card-toolbar">
+            <input type="search" id="ens-search" placeholder="Rechercher…" class="input"/>
+            <select id="ens-filter-dep" class="input"><option value="">Tous départements</option></select>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>ID</th><th>Nom complet</th><th>Grade</th><th>Spécialité</th><th>Département</th><th>Email</th><th></th></tr></thead>
+              <tbody id="ens-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-ens-volume">
+        <div class="card">
+          <div class="card-head"><h3>Top 5 par volume horaire</h3></div>
+          <div id="ens-volume-list" class="bars"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-ens-departement">
+        <div class="card">
+          <div class="card-head"><h3>Comptage par département</h3></div>
+          <div id="ens-dep-list" class="bars"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== FORMATIONS (Module 3) ============== -->
+    <section class="view" id="view-formations">
+      <header class="page-head">
+        <div>
+          <div class="page-eyebrow">Module 03</div>
+          <h1 class="page-title">Gestion <em>des formations</em></h1>
+          <p class="page-lede">Filières, matières, unités d'enseignement, coefficients et volumes horaires.</p>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-ghost" id="btn-new-fil"><span>+</span> Filière</button>
+          <button class="btn btn-primary" id="btn-new-mat"><span>+</span> Matière</button>
+        </div>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Filières</div><div class="kpi-value" id="kpi-fil-total">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Matières</div><div class="kpi-value" id="kpi-mat-total">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">UE distinctes</div><div class="kpi-value" id="kpi-ue-total">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Volume total</div><div class="kpi-value" id="kpi-form-volume">—</div></div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab is-active" data-tab="tab-form-mat">Matières</button>
+        <button class="tab" data-tab="tab-form-fil">Filières</button>
+        <button class="tab" data-tab="tab-form-ue">Par UE</button>
+      </div>
+
+      <div class="tab-panel is-active" id="tab-form-mat">
+        <div class="card">
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>ID</th><th>Matière</th><th>UE</th><th class="num">Coef</th><th class="num">Volume</th><th>Enseignant</th><th></th></tr></thead>
+              <tbody id="mat-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-form-fil">
+        <div class="card">
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>ID</th><th>Filière</th><th>Responsable</th><th></th></tr></thead>
+              <tbody id="fil-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-form-ue">
+        <div class="card">
+          <div class="card-head"><h3>Volume horaire par UE</h3></div>
+          <div id="form-ue-volume" class="bars"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== INSCRIPTIONS (Module 4) ============== -->
+    <section class="view" id="view-inscriptions">
+      <header class="page-head">
+        <div>
+          <div class="page-eyebrow">Module 04</div>
+          <h1 class="page-title">Gestion <em>des inscriptions</em></h1>
+          <p class="page-lede">Inscription unique par année académique, validation et suivi du statut.</p>
+        </div>
+        <button class="btn btn-primary" id="btn-new-insc"><span>+</span> Nouvelle inscription</button>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Total</div><div class="kpi-value" id="kpi-insc-total">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Validées</div><div class="kpi-value" id="kpi-insc-val">—</div></div>
+        <div class="kpi-card kpi-warn"><div class="kpi-label">En attente</div><div class="kpi-value" id="kpi-insc-att">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Annulées</div><div class="kpi-value" id="kpi-insc-ann">—</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-toolbar">
+          <select id="insc-filter-statut" class="input">
+            <option value="">Tous statuts</option><option>Validee</option><option>En attente</option><option>Annulee</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>ID</th><th>Étudiant</th><th>Filière</th><th>Niveau</th><th>Année</th><th>Statut</th><th></th></tr></thead>
+            <tbody id="insc-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== NOTES (Module 5) ============== -->
+    <section class="view" id="view-notes">
       <header class="page-head">
         <div>
           <div class="page-eyebrow">Module 05</div>
           <h1 class="page-title">Gestion <em>des notes</em></h1>
-          <p class="page-lede">Saisie des contrôles continus et examens, calcul des moyennes pondérées et détection des échecs académiques.</p>
+          <p class="page-lede">Saisie CC/Examen, calcul des moyennes pondérées et détection des échecs académiques.</p>
         </div>
-        <button class="btn btn-primary" id="btn-new-note">
-          <span>+</span> Nouvelle note
-        </button>
+        <button class="btn btn-primary" id="btn-new-note"><span>+</span> Nouvelle note</button>
       </header>
 
-      <!-- KPIs -->
       <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">Notes saisies</div>
-          <div class="kpi-value" id="kpi-notes-total">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Moyenne globale</div>
-          <div class="kpi-value" id="kpi-moy-globale">—</div>
-        </div>
-        <div class="kpi-card kpi-warn">
-          <div class="kpi-label">Étudiants en échec</div>
-          <div class="kpi-value" id="kpi-echecs">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Notes incomplètes</div>
-          <div class="kpi-value" id="kpi-incompletes">—</div>
-        </div>
+        <div class="kpi-card"><div class="kpi-label">Notes saisies</div><div class="kpi-value" id="kpi-notes-total">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Moyenne globale</div><div class="kpi-value" id="kpi-moy-globale">—</div></div>
+        <div class="kpi-card kpi-warn"><div class="kpi-label">Étudiants en échec</div><div class="kpi-value" id="kpi-echecs">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Notes incomplètes</div><div class="kpi-value" id="kpi-incompletes">—</div></div>
       </div>
 
-      <!-- Tabs -->
       <div class="tabs">
-        <button class="tab is-active" data-tab="notes-liste">Liste des notes</button>
-        <button class="tab" data-tab="notes-classement">Classement</button>
-        <button class="tab" data-tab="notes-echec">En échec</button>
-        <button class="tab" data-tab="notes-stats">Statistiques</button>
+        <button class="tab is-active" data-tab="tab-notes-liste">Liste des notes</button>
+        <button class="tab" data-tab="tab-notes-classement">Classement</button>
+        <button class="tab" data-tab="tab-notes-echec">En échec</button>
+        <button class="tab" data-tab="tab-notes-stats">Statistiques</button>
       </div>
 
-      <!-- Tab : liste -->
       <div class="tab-panel is-active" id="tab-notes-liste">
         <div class="card">
           <div class="card-toolbar">
@@ -101,101 +369,47 @@
           </div>
           <div class="table-wrap">
             <table class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Étudiant</th>
-                  <th>Matière</th>
-                  <th class="num">CC</th>
-                  <th class="num">Examen</th>
-                  <th class="num">Moyenne</th>
-                  <th>Statut</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="notes-tbody">
-                <tr><td colspan="8" class="empty">Chargement…</td></tr>
-              </tbody>
+              <thead><tr><th>ID</th><th>Étudiant</th><th>Matière</th><th class="num">CC</th><th class="num">Examen</th><th class="num">Moyenne</th><th></th></tr></thead>
+              <tbody id="notes-tbody"><tr><td colspan="7" class="empty">Chargement…</td></tr></tbody>
             </table>
           </div>
         </div>
       </div>
-
-      <!-- Tab : classement -->
       <div class="tab-panel" id="tab-notes-classement">
-        <div class="card">
-          <div class="card-head">
-            <h3>Classement général des étudiants</h3>
-            <p class="muted">Moyennes pondérées par les coefficients des matières.</p>
-          </div>
-          <div class="ranking" id="ranking"></div>
-        </div>
+        <div class="card"><div class="card-head"><h3>Classement général</h3><p class="muted">Moyennes pondérées par les coefficients.</p></div><div class="ranking" id="ranking"></div></div>
       </div>
-
-      <!-- Tab : echec -->
       <div class="tab-panel" id="tab-notes-echec">
-        <div class="card">
-          <div class="card-head">
-            <h3>Étudiants en difficulté</h3>
-            <p class="muted">Moyenne &lt; 10 → ajourné ou redoublement.</p>
-          </div>
-          <div class="table-wrap">
-            <table class="table">
-              <thead><tr><th>Matricule</th><th class="num">Moyenne</th><th>Décision</th></tr></thead>
-              <tbody id="echec-tbody"></tbody>
-            </table>
-          </div>
+        <div class="card"><div class="card-head"><h3>Étudiants en difficulté</h3><p class="muted">Moyenne &lt; 10.</p></div>
+          <div class="table-wrap"><table class="table"><thead><tr><th>Matricule</th><th>Étudiant</th><th class="num">Moyenne</th></tr></thead><tbody id="echec-tbody"></tbody></table></div>
         </div>
       </div>
-
-      <!-- Tab : stats -->
       <div class="tab-panel" id="tab-notes-stats">
-        <div class="card">
-          <div class="card-head">
-            <h3>Moyenne par matière</h3>
-            <p class="muted">Indicateur de difficulté relative.</p>
-          </div>
-          <div id="stats-matiere" class="bars"></div>
-        </div>
+        <div class="card"><div class="card-head"><h3>Moyenne par matière</h3></div><div id="stats-matiere" class="bars"></div></div>
       </div>
     </section>
 
-    <!-- ===================== ABSENCES VIEW ===================== -->
+    <!-- ============== ABSENCES (Module 6) ============== -->
     <section class="view" id="view-absences">
       <header class="page-head">
         <div>
           <div class="page-eyebrow">Module 06</div>
           <h1 class="page-title">Gestion <em>des absences</em></h1>
-          <p class="page-lede">Enregistrement des heures d'absence, justification et alertes de dépassement de seuil.</p>
+          <p class="page-lede">Enregistrement, justification et alertes de dépassement.</p>
         </div>
-        <button class="btn btn-primary" id="btn-new-absence">
-          <span>+</span> Nouvelle absence
-        </button>
+        <button class="btn btn-primary" id="btn-new-absence"><span>+</span> Nouvelle absence</button>
       </header>
 
       <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">Total absences</div>
-          <div class="kpi-value" id="kpi-abs-total">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Heures cumulées</div>
-          <div class="kpi-value" id="kpi-heures">—</div>
-        </div>
-        <div class="kpi-card kpi-warn">
-          <div class="kpi-label">En alerte (≥ 10h)</div>
-          <div class="kpi-value" id="kpi-alerte">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Non justifiées</div>
-          <div class="kpi-value" id="kpi-nonjust">—</div>
-        </div>
+        <div class="kpi-card"><div class="kpi-label">Total</div><div class="kpi-value" id="kpi-abs-total">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Heures cumulées</div><div class="kpi-value" id="kpi-heures">—</div></div>
+        <div class="kpi-card kpi-warn"><div class="kpi-label">En alerte (≥ 10h)</div><div class="kpi-value" id="kpi-alerte">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Non justifiées</div><div class="kpi-value" id="kpi-nonjust">—</div></div>
       </div>
 
       <div class="tabs">
-        <button class="tab is-active" data-tab="abs-liste">Liste</button>
-        <button class="tab" data-tab="abs-alerte">Étudiants en alerte</button>
-        <button class="tab" data-tab="abs-stats">Statistiques</button>
+        <button class="tab is-active" data-tab="tab-abs-liste">Liste</button>
+        <button class="tab" data-tab="tab-abs-alerte">Étudiants en alerte</button>
+        <button class="tab" data-tab="tab-abs-stats">Statistiques</button>
       </div>
 
       <div class="tab-panel is-active" id="tab-abs-liste">
@@ -203,140 +417,148 @@
           <div class="card-toolbar">
             <input type="search" id="abs-search" placeholder="Rechercher par matricule…" class="input"/>
             <select id="abs-filter-just" class="input">
-              <option value="">Tous</option>
-              <option value="false">Non justifiées</option>
-              <option value="true">Justifiées</option>
+              <option value="">Tous</option><option value="non">Non justifiées</option><option value="oui">Justifiées</option>
             </select>
           </div>
-          <div class="table-wrap">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Étudiant</th>
-                  <th>Matière</th>
-                  <th>Date</th>
-                  <th class="num">Heures</th>
-                  <th>Justifiée</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="abs-tbody"></tbody>
-            </table>
-          </div>
+          <div class="table-wrap"><table class="table">
+            <thead><tr><th>ID</th><th>Étudiant</th><th>Matière</th><th>Date</th><th class="num">Heures</th><th>Justifiée</th><th></th></tr></thead>
+            <tbody id="abs-tbody"></tbody>
+          </table></div>
         </div>
       </div>
-
       <div class="tab-panel" id="tab-abs-alerte">
-        <div class="card">
-          <div class="card-head">
-            <h3>Étudiants en dépassement</h3>
-            <p class="muted">Cumul d'heures non justifiées au-delà du seuil.</p>
-          </div>
-          <div class="table-wrap">
-            <table class="table">
-              <thead><tr><th>Matricule</th><th class="num">Heures cumulées</th><th>Niveau</th></tr></thead>
-              <tbody id="alerte-tbody"></tbody>
-            </table>
-          </div>
+        <div class="card"><div class="card-head"><h3>Étudiants en dépassement</h3></div>
+          <div class="table-wrap"><table class="table"><thead><tr><th>Matricule</th><th>Étudiant</th><th class="num">Heures cumulées</th></tr></thead><tbody id="alerte-tbody"></tbody></table></div>
         </div>
       </div>
-
       <div class="tab-panel" id="tab-abs-stats">
-        <div class="card">
-          <div class="card-head">
-            <h3>Absentéisme par filière</h3>
-            <p class="muted">Moyenne d'heures non justifiées par étudiant.</p>
-          </div>
-          <div id="stats-filiere" class="bars"></div>
-        </div>
+        <div class="card"><div class="card-head"><h3>Absentéisme par filière</h3></div><div id="stats-filiere" class="bars"></div></div>
       </div>
     </section>
 
-    <!-- ===================== EMPLOIS VIEW ===================== -->
+    <!-- ============== EMPLOIS (Module 7) ============== -->
     <section class="view" id="view-emplois">
       <header class="page-head">
         <div>
           <div class="page-eyebrow">Module 07</div>
           <h1 class="page-title">Emplois <em>du temps</em></h1>
-          <p class="page-lede">Création de séances, affectation des salles et détection automatique des conflits d'horaires.</p>
+          <p class="page-lede">Création de séances, affectation et détection de conflits.</p>
         </div>
-        <button class="btn btn-primary" id="btn-new-seance">
-          <span>+</span> Nouvelle séance
-        </button>
+        <button class="btn btn-primary" id="btn-new-seance"><span>+</span> Nouvelle séance</button>
       </header>
 
       <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">Séances totales</div>
-          <div class="kpi-value" id="kpi-seances">—</div>
-        </div>
-        <div class="kpi-card kpi-warn">
-          <div class="kpi-label">Conflits détectés</div>
-          <div class="kpi-value" id="kpi-conflits">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Salles utilisées</div>
-          <div class="kpi-value" id="kpi-salles">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Enseignants actifs</div>
-          <div class="kpi-value" id="kpi-ens">—</div>
-        </div>
+        <div class="kpi-card"><div class="kpi-label">Séances totales</div><div class="kpi-value" id="kpi-seances">—</div></div>
+        <div class="kpi-card kpi-warn"><div class="kpi-label">Conflits détectés</div><div class="kpi-value" id="kpi-conflits">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Salles utilisées</div><div class="kpi-value" id="kpi-salles">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Enseignants actifs</div><div class="kpi-value" id="kpi-ens">—</div></div>
       </div>
 
       <div class="tabs">
-        <button class="tab is-active" data-tab="emp-grille">Grille hebdomadaire</button>
-        <button class="tab" data-tab="emp-liste">Liste des séances</button>
-        <button class="tab" data-tab="emp-conflits">Conflits</button>
+        <button class="tab is-active" data-tab="tab-emp-grille">Grille hebdomadaire</button>
+        <button class="tab" data-tab="tab-emp-liste">Liste</button>
+        <button class="tab" data-tab="tab-emp-conflits">Conflits</button>
       </div>
 
       <div class="tab-panel is-active" id="tab-emp-grille">
         <div class="card">
           <div class="card-toolbar">
-            <select id="grid-filiere" class="input">
-              <option value="">Toutes les filières</option>
-            </select>
-            <select id="grid-niveau" class="input">
-              <option value="">Tous les niveaux</option>
-              <option value="M1">M1</option>
-              <option value="M2">M2</option>
-            </select>
+            <select id="grid-filiere" class="input"><option value="">Toutes filières</option></select>
+            <select id="grid-niveau" class="input"><option value="">Tous niveaux</option><option>M1</option><option>M2</option></select>
           </div>
           <div class="schedule" id="schedule"></div>
         </div>
       </div>
-
       <div class="tab-panel" id="tab-emp-liste">
+        <div class="card"><div class="table-wrap"><table class="table">
+          <thead><tr><th>ID</th><th>Matière</th><th>Enseignant</th><th>Salle</th><th>Jour</th><th>Horaire</th><th>Classe</th><th></th></tr></thead>
+          <tbody id="seances-tbody"></tbody>
+        </table></div></div>
+      </div>
+      <div class="tab-panel" id="tab-emp-conflits">
+        <div class="card"><div class="card-head"><h3>Conflits</h3><p class="muted">Chevauchements de salle, enseignant ou classe.</p></div><div id="conflits-list"></div></div>
+      </div>
+    </section>
+
+    <!-- ============== PAIEMENTS (Module 8) ============== -->
+    <section class="view" id="view-paiements">
+      <header class="page-head">
+        <div>
+          <div class="page-eyebrow">Module 08</div>
+          <h1 class="page-title">Gestion <em>des paiements</em></h1>
+          <p class="page-lede">Frais d'inscription, paiements partiels, reste à payer et synthèse financière.</p>
+        </div>
+        <button class="btn btn-primary" id="btn-new-paie"><span>+</span> Nouveau paiement</button>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Total attendu</div><div class="kpi-value" id="kpi-paie-attendu">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Total encaissé</div><div class="kpi-value" id="kpi-paie-encaisse">—</div></div>
+        <div class="kpi-card kpi-warn"><div class="kpi-label">Reste à recouvrer</div><div class="kpi-value" id="kpi-paie-restant">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Taux recouvrement</div><div class="kpi-value" id="kpi-paie-taux">—</div></div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab is-active" data-tab="tab-paie-liste">Liste</button>
+        <button class="tab" data-tab="tab-paie-dette">Étudiants en dette</button>
+        <button class="tab" data-tab="tab-paie-synth">Synthèse par filière</button>
+      </div>
+
+      <div class="tab-panel is-active" id="tab-paie-liste">
+        <div class="card"><div class="table-wrap"><table class="table">
+          <thead><tr><th>ID</th><th>Étudiant</th><th class="num">Total</th><th class="num">Payé</th><th class="num">Reste</th><th>Mode</th><th>Date</th><th></th></tr></thead>
+          <tbody id="paie-tbody"></tbody>
+        </table></div></div>
+      </div>
+      <div class="tab-panel" id="tab-paie-dette">
+        <div class="card"><div class="card-head"><h3>Étudiants endettés</h3></div>
+          <div class="table-wrap"><table class="table"><thead><tr><th>Matricule</th><th>Étudiant</th><th class="num">Dette cumulée</th></tr></thead><tbody id="dette-tbody"></tbody></table></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-paie-synth">
+        <div class="card"><div class="card-head"><h3>Synthèse par filière</h3></div><div id="paie-synth" class="bars"></div></div>
+      </div>
+    </section>
+
+    <!-- ============== BIG DATA (Module 10) ============== -->
+    <section class="view" id="view-bigdata">
+      <header class="page-head">
+        <div>
+          <div class="page-eyebrow">Module 10</div>
+          <h1 class="page-title">Big <em>Data</em></h1>
+          <p class="page-lede">Exports CSV, performance par promotion, tendances mensuelles et détection de valeurs manquantes.</p>
+        </div>
+        <button class="btn btn-primary" id="btn-bd-export">
+          <span>↓</span> Lancer tous les exports
+        </button>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Notes sans CC</div><div class="kpi-value" id="kpi-bd-cc">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Notes sans examen</div><div class="kpi-value" id="kpi-bd-exam">—</div></div>
+        <div class="kpi-card kpi-warn"><div class="kpi-label">Notes invalides</div><div class="kpi-value" id="kpi-bd-inv">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Promotions analysées</div><div class="kpi-value" id="kpi-bd-promo">—</div></div>
+      </div>
+
+      <div class="grid-2">
         <div class="card">
-          <div class="table-wrap">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Jour</th>
-                  <th>Horaire</th>
-                  <th>Matière</th>
-                  <th>Enseignant</th>
-                  <th>Salle</th>
-                  <th>Classe</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="seances-tbody"></tbody>
-            </table>
-          </div>
+          <div class="card-head"><h3>Performance par promotion</h3><p class="muted">Moyenne par année académique.</p></div>
+          <div id="bd-promo" class="bars"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Absences par mois</h3><p class="muted">Tendance des heures cumulées.</p></div>
+          <div id="bd-abs-mois" class="bars"></div>
         </div>
       </div>
 
-      <div class="tab-panel" id="tab-emp-conflits">
-        <div class="card">
-          <div class="card-head">
-            <h3>Conflits d'emploi du temps</h3>
-            <p class="muted">Chevauchements de salle, enseignant ou classe.</p>
-          </div>
-          <div id="conflits-list"></div>
-        </div>
+      <div class="card">
+        <div class="card-head"><h3>Paiements par mois</h3></div>
+        <div id="bd-paie-mois" class="bars"></div>
+      </div>
+
+      <div class="card" id="bd-export-result" style="display:none">
+        <div class="card-head"><h3>Fichiers exportés</h3></div>
+        <div id="bd-export-list"></div>
       </div>
     </section>
 
@@ -344,11 +566,11 @@
 
   <!-- Modal -->
   <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
+    <div class="modal-overlay" data-close-modal></div>
     <div class="modal-card">
       <header class="modal-head">
         <h3 id="modal-title">Titre</h3>
-        <button class="icon-btn" data-close>×</button>
+        <button class="icon-btn" data-close-modal>×</button>
       </header>
       <div class="modal-body" id="modal-body"></div>
     </div>
@@ -362,6 +584,13 @@
   <script src="/js/notes.js"></script>
   <script src="/js/absences.js"></script>
   <script src="/js/emplois.js"></script>
+  <script src="/js/etudiants.js"></script>
+  <script src="/js/enseignants.js"></script>
+  <script src="/js/formations.js"></script>
+  <script src="/js/inscriptions.js"></script>
+  <script src="/js/paiements.js"></script>
+  <script src="/js/bigdata.js"></script>
+  <script src="/js/dashboard.js"></script>
   <script src="/js/app.js"></script>
 </body>
 </html>

@@ -11,20 +11,12 @@ import universite.api._
 import universite.db.Database
 import universite.util.CorsHandler
 
-import scala.concurrent.ExecutionContextExecutor
+import scala.concurrent.duration.Duration
+import scala.concurrent.{Await, ExecutionContextExecutor}
 import scala.util.{Failure, Success}
 
 /**
- * Point d'entree de l'application :
- *
- *  1. Charge la configuration
- *  2. Initialise le pool de connexions PostgreSQL
- *  3. Demarre un serveur Akka HTTP qui sert :
- *      - l'API REST pour les modules 5, 6, 7
- *      - les fichiers du front (HTML/CSS/JS) sous /
- *
- *  Les fichiers du front sont cherches dans le dossier `frontend/` a la racine
- *  du projet.
+ * Point d'entree de l'application.
  */
 object Main extends App with CorsHandler {
 
@@ -50,10 +42,17 @@ object Main extends App with CorsHandler {
       log.error("Verifiez application.conf et que la base est accessible.")
   }
 
-  private val noteRoutes   = new NoteRoutes()
-  private val absenceRoutes = new AbsenceRoutes()
-  private val seanceRoutes = new SeanceRoutes()
-  private val refRoutes    = new ReferentielRoutes()
+  private val noteRoutes        = new NoteRoutes()
+  private val absenceRoutes     = new AbsenceRoutes()
+  private val seanceRoutes      = new SeanceRoutes()
+  private val refRoutes         = new ReferentielRoutes()
+  private val etudiantRoutes    = new EtudiantRoutes()
+  private val enseignantRoutes  = new EnseignantRoutes()
+  private val formationRoutes   = new FormationRoutes()
+  private val inscriptionRoutes = new InscriptionRoutes()
+  private val paiementRoutes    = new PaiementRoutes()
+  private val dashboardRoutes   = new TableauDeBordRoutes()
+  private val bigdataRoutes     = new BigDataRoutes()
 
   // API endpoints sous /api
   private val apiRoutes: Route = pathPrefix("api") {
@@ -61,7 +60,14 @@ object Main extends App with CorsHandler {
       noteRoutes.routes,
       absenceRoutes.routes,
       seanceRoutes.routes,
-      refRoutes.routes
+      refRoutes.routes,
+      etudiantRoutes.routes,
+      enseignantRoutes.routes,
+      formationRoutes.routes,
+      inscriptionRoutes.routes,
+      paiementRoutes.routes,
+      dashboardRoutes.routes,
+      bigdataRoutes.routes
     )
   }
 
@@ -87,18 +93,24 @@ object Main extends App with CorsHandler {
 
   bindingFuture.onComplete {
     case Success(b) =>
-      log.info(s"Serveur demarre sur http://${b.localAddress.getHostString}:${b.localAddress.getPort}")
+      val addr = b.localAddress
+      log.info(s"Serveur demarre sur http://${addr.getHostString}:${addr.getPort}")
       log.info(s"Front : http://localhost:$port/")
-      log.info(s"API   : http://localhost:$port/api/notes, /api/absences, /api/seances")
+      log.info(s"API   : 11 modules disponibles sous /api/{etudiants,enseignants,filieres,matieres,inscriptions,notes,absences,seances,paiements,dashboard,bigdata}")
+      log.info("Appuyez sur Ctrl+C pour arreter le serveur.")
     case Failure(ex) =>
       log.error(s"Echec demarrage serveur : ${ex.getMessage}")
       system.terminate()
   }
-  scala.io.StdIn.readLine()
+
   // Hook d'arret propre
   sys.addShutdownHook {
     log.info("Arret en cours...")
-    Database.close()
-    system.terminate()
+    try { Database.close() } catch { case _: Throwable => () }
+    try { system.terminate() } catch { case _: Throwable => () }
   }
+
+  // BLOQUER LE THREAD PRINCIPAL : sans cette ligne, sbt run termine
+  // immediatement apres le binding et le serveur est tue.
+  Await.result(system.whenTerminated, Duration.Inf)
 }

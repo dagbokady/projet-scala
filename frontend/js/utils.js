@@ -6,12 +6,16 @@ function showToast(message, kind = 'info') {
   const el = document.getElementById('toast');
   if (!el) return;
   el.textContent = message;
-  el.dataset.kind = kind;
+  // Retirer les classes précédentes
+  el.classList.remove('show', 'toast-success', 'toast-error', 'toast-info');
+  // Ajouter la bonne couleur
+  if (kind === 'success') el.classList.add('toast-success');
+  else if (kind === 'error') el.classList.add('toast-error');
+  el.classList.add('show');
   el.setAttribute('aria-hidden', 'false');
-  el.classList.add('is-visible');
   if (toastTimer) clearTimeout(toastTimer);
   toastTimer = setTimeout(() => {
-    el.classList.remove('is-visible');
+    el.classList.remove('show');
     el.setAttribute('aria-hidden', 'true');
   }, 3200);
 }
@@ -22,12 +26,12 @@ function openModal(title, htmlBody) {
   document.getElementById('modal-title').textContent = title;
   document.getElementById('modal-body').innerHTML = htmlBody;
   modal.setAttribute('aria-hidden', 'false');
-  modal.classList.add('is-visible');
+  modal.classList.add('is-open');
 }
 function closeModal() {
   const modal = document.getElementById('modal');
   modal.setAttribute('aria-hidden', 'true');
-  modal.classList.remove('is-visible');
+  modal.classList.remove('is-open');
   document.getElementById('modal-body').innerHTML = '';
 }
 // Fermer au clic sur le backdrop ou sur les éléments [data-close-modal]
@@ -59,8 +63,8 @@ function formatNum(n, dec = 2) {
 function escapeHtml(s) {
   if (s === null || s === undefined) return '';
   return String(s)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
 // ---------- Debounce ----------

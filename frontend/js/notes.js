@@ -15,11 +15,11 @@
       ]);
       const total = etatNotes.length;
       const moysValides = (classement || [])
-        .map(c => c.moyenneGenerale)
-        .filter(m => typeof m === 'number');
+          .map(c => c.moyenneGenerale)
+          .filter(m => typeof m === 'number');
       const moyG = moysValides.length
-        ? moysValides.reduce((a, b) => a + b, 0) / moysValides.length
-        : null;
+          ? moysValides.reduce((a, b) => a + b, 0) / moysValides.length
+          : null;
       document.getElementById('kpi-notes-total').textContent  = total;
       document.getElementById('kpi-moy-globale').textContent  = utils.formatNum(moyG);
       document.getElementById('kpi-echecs').textContent       = (echec || []).length;
@@ -35,7 +35,7 @@
     const filtreMat = document.getElementById('note-filter-matiere').value || '';
 
     const lignes = etatNotes.filter(n => {
-      const okMat = !filtreMat || n.idMatiere === filtreMat;
+      const okMat = !filtreMat || n.matiere === filtreMat;
       const okSearch = !recherche || (n.matricule || '').toLowerCase().includes(recherche);
       return okMat && okSearch;
     });
@@ -47,18 +47,18 @@
 
     tbody.innerHTML = lignes.map(n => {
       const moy = (typeof n.controleContinu === 'number' && typeof n.examen === 'number')
-        ? (n.controleContinu * 0.4 + n.examen * 0.6) : null;
+          ? (n.controleContinu * 0.4 + n.examen * 0.6) : null;
       return '<tr>'
-        + '<td><code>' + utils.escapeHtml(n.idNote) + '</code></td>'
-        + '<td>' + utils.escapeHtml(n.matricule) + '<br><span class="muted">'
-            + utils.escapeHtml(utils.nomEtudiant(n.matricule)) + '</span></td>'
-        + '<td>' + utils.escapeHtml(utils.nomMatiere(n.idMatiere)) + '</td>'
-        + '<td class="num">' + (n.controleContinu ?? '—') + '</td>'
-        + '<td class="num">' + (n.examen ?? '—') + '</td>'
-        + '<td class="num">' + utils.badgeMoyenne(moy) + '</td>'
-        + '<td><button class="btn btn-sm btn-danger" data-action="del-note" data-id="'
-            + utils.escapeHtml(n.idNote) + '">Suppr.</button></td>'
-        + '</tr>';
+          + '<td><code>' + utils.escapeHtml(n.idNote) + '</code></td>'
+          + '<td>' + utils.escapeHtml(n.matricule) + '<br><span class="muted">'
+          + utils.escapeHtml(utils.nomEtudiant(n.matricule)) + '</span></td>'
+          + '<td>' + utils.escapeHtml(utils.nomMatiere(n.matiere)) + '</td>'
+          + '<td class="num">' + (n.controleContinu ?? '—') + '</td>'
+          + '<td class="num">' + (n.examen ?? '—') + '</td>'
+          + '<td class="num">' + utils.badgeMoyenne(moy) + '</td>'
+          + '<td><button class="btn btn-sm btn-danger" data-action="del-note" data-id="'
+          + utils.escapeHtml(n.idNote) + '">Suppr.</button></td>'
+          + '</tr>';
     }).join('');
   }
 
@@ -82,12 +82,12 @@
         return;
       }
       wrap.innerHTML = data.map((c, idx) =>
-        '<div class="rank-row">'
-        + '<div class="rank-pos">#' + (idx + 1) + '</div>'
-        + '<div class="rank-mat"><strong>' + utils.escapeHtml(c.matricule) + '</strong>'
-        +   '<br><span class="muted">' + utils.escapeHtml(utils.nomEtudiant(c.matricule)) + '</span></div>'
-        + '<div class="rank-moy">' + utils.badgeMoyenne(c.moyenneGenerale) + '</div>'
-        + '</div>'
+          '<div class="rank-row">'
+          + '<div class="rank-pos">#' + (idx + 1) + '</div>'
+          + '<div class="rank-mat"><strong>' + utils.escapeHtml(c.matricule) + '</strong>'
+          +   '<br><span class="muted">' + utils.escapeHtml(utils.nomEtudiant(c.matricule)) + '</span></div>'
+          + '<div class="rank-moy">' + utils.badgeMoyenne(c.moyenneGenerale) + '</div>'
+          + '</div>'
       ).join('');
     } catch (e) {
       wrap.innerHTML = '<div class="empty">Erreur : ' + utils.escapeHtml(e.message) + '</div>';
@@ -104,15 +104,15 @@
         return;
       }
       tbody.innerHTML = data.map(c =>
-        '<tr>'
-        + '<td><code>' + utils.escapeHtml(c.matricule) + '</code></td>'
-        + '<td>' + utils.escapeHtml(utils.nomEtudiant(c.matricule)) + '</td>'
-        + '<td class="num">' + utils.badgeMoyenne(c.moyenneGenerale) + '</td>'
-        + '</tr>'
+          '<tr>'
+          + '<td><code>' + utils.escapeHtml(c.matricule) + '</code></td>'
+          + '<td>' + utils.escapeHtml(utils.nomEtudiant(c.matricule)) + '</td>'
+          + '<td class="num">' + utils.badgeMoyenne(c.moyenneGenerale) + '</td>'
+          + '</tr>'
       ).join('');
     } catch (e) {
       tbody.innerHTML = '<tr><td colspan="3" class="empty">Erreur : '
-        + utils.escapeHtml(e.message) + '</td></tr>';
+          + utils.escapeHtml(e.message) + '</td></tr>';
     }
   }
 
@@ -129,10 +129,10 @@
       wrap.innerHTML = data.map(s => {
         const pct = Math.max(0, Math.min(100, (s.moyenne / max) * 100));
         return '<div class="bar-row">'
-          + '<div class="bar-label">' + utils.escapeHtml(utils.nomMatiere(s.idMatiere)) + '</div>'
-          + '<div class="bar-track"><div class="bar-fill" style="width:' + pct.toFixed(1) + '%"></div></div>'
-          + '<div class="bar-value">' + utils.formatNum(s.moyenne) + '</div>'
-          + '</div>';
+            + '<div class="bar-label">' + utils.escapeHtml(utils.nomMatiere(s.matiere)) + '</div>'
+            + '<div class="bar-track"><div class="bar-fill" style="width:' + pct.toFixed(1) + '%"></div></div>'
+            + '<div class="bar-value">' + utils.formatNum(s.moyenne) + '</div>'
+            + '</div>';
       }).join('');
     } catch (e) {
       wrap.innerHTML = '<div class="empty">Erreur : ' + utils.escapeHtml(e.message) + '</div>';
@@ -143,41 +143,41 @@
     const sel = document.getElementById('note-filter-matiere');
     const cur = sel.value;
     sel.innerHTML = '<option value="">Toutes les matières</option>'
-      + (utils.refCache.matieres || []).map(m =>
-          '<option value="' + utils.escapeHtml(m.idMatiere) + '">'
-          + utils.escapeHtml(m.nomMatiere) + '</option>'
+        + (utils.refCache.matieres || []).map(m =>
+            '<option value="' + utils.escapeHtml(m.idMatiere) + '">'
+            + utils.escapeHtml(m.nomMatiere) + '</option>'
         ).join('');
     if (cur) sel.value = cur;
   }
 
   function ouvrirFormulaire() {
     const optEtu = (utils.refCache.etudiants || []).map(e =>
-      '<option value="' + utils.escapeHtml(e.matricule) + '">'
-      + utils.escapeHtml(e.matricule + ' — ' + e.prenom + ' ' + e.nom) + '</option>'
+        '<option value="' + utils.escapeHtml(e.matricule) + '">'
+        + utils.escapeHtml(e.matricule + ' — ' + e.prenom + ' ' + e.nom) + '</option>'
     ).join('');
     const optMat = (utils.refCache.matieres || []).map(m =>
-      '<option value="' + utils.escapeHtml(m.idMatiere) + '">'
-      + utils.escapeHtml(m.nomMatiere) + '</option>'
+        '<option value="' + utils.escapeHtml(m.idMatiere) + '">'
+        + utils.escapeHtml(m.nomMatiere) + '</option>'
     ).join('');
 
     const html =
-      '<form id="form-note">'
-      + '<div class="form-row">'
-      +   '<div class="form-group"><label class="form-label">Étudiant</label>'
-      +     '<select class="form-select" name="matricule" required>' + optEtu + '</select></div>'
-      +   '<div class="form-group"><label class="form-label">Matière</label>'
-      +     '<select class="form-select" name="idMatiere" required>' + optMat + '</select></div>'
-      + '</div>'
-      + '<div class="form-row">'
-      +   '<div class="form-group"><label class="form-label">Contrôle continu (/20)</label>'
-      +     '<input class="form-input" type="number" name="cc" min="0" max="20" step="0.25" required></div>'
-      +   '<div class="form-group"><label class="form-label">Examen (/20)</label>'
-      +     '<input class="form-input" type="number" name="exam" min="0" max="20" step="0.25" required></div>'
-      + '</div>'
-      + '<div class="form-actions">'
-      +   '<button type="button" class="btn btn-ghost" data-close-modal>Annuler</button>'
-      +   '<button type="submit" class="btn btn-primary">Enregistrer</button>'
-      + '</div></form>';
+        '<form id="form-note">'
+        + '<div class="form-row">'
+        +   '<div class="form-group"><label class="form-label">Étudiant</label>'
+        +     '<select class="form-select" name="matricule" required>' + optEtu + '</select></div>'
+        +   '<div class="form-group"><label class="form-label">Matière</label>'
+        +     '<select class="form-select" name="idMatiere" required>' + optMat + '</select></div>'
+        + '</div>'
+        + '<div class="form-row">'
+        +   '<div class="form-group"><label class="form-label">Contrôle continu (/20)</label>'
+        +     '<input class="form-input" type="number" name="cc" min="0" max="20" step="0.25" required></div>'
+        +   '<div class="form-group"><label class="form-label">Examen (/20)</label>'
+        +     '<input class="form-input" type="number" name="exam" min="0" max="20" step="0.25" required></div>'
+        + '</div>'
+        + '<div class="form-actions">'
+        +   '<button type="button" class="btn btn-ghost" data-close-modal>Annuler</button>'
+        +   '<button type="submit" class="btn btn-primary">Enregistrer</button>'
+        + '</div></form>';
 
     utils.openModal('Nouvelle note', html);
 
@@ -186,7 +186,7 @@
       const f = ev.target;
       const payload = {
         matricule: f.matricule.value,
-        idMatiere: f.idMatiere.value,
+        matiere: f.idMatiere.value,
         controleContinu: Number(f.cc.value),
         examen: Number(f.exam.value)
       };

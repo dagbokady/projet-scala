@@ -14,10 +14,11 @@ import scala.util.{Failure, Success}
  * listes deroulantes (selects) lors de la saisie.
  */
 class ReferentielRoutes(
-  etudiantRepo:  EtudiantRepository  = new EtudiantRepository,
-  matiereRepo:   MatiereRepository   = new MatiereRepository,
-  salleRepo:     SalleRepository     = new SalleRepository,
-  enseignantRepo: EnseignantRepository = new EnseignantRepository
+  etudiantRepo:   EtudiantRepository   = new EtudiantRepository,
+  matiereRepo:    MatiereRepository    = new MatiereRepository,
+  salleRepo:      SalleRepository      = new SalleRepository,
+  enseignantRepo: EnseignantRepository = new EnseignantRepository,
+  filiereRepo:    FiliereRepository    = new FiliereRepository
 ) {
 
   val routes: Route = pathPrefix("ref") {
@@ -53,6 +54,15 @@ class ReferentielRoutes(
       path("enseignants") {
         get {
           enseignantRepo.listerTous() match {
+            case Success(ls) => complete(ls)
+            case Failure(ex) => complete(StatusCodes.InternalServerError, ErreurReponse(ex.getMessage))
+          }
+        }
+      },
+
+      path("filieres") {
+        get {
+          filiereRepo.listerToutes() match {
             case Success(ls) => complete(ls)
             case Failure(ex) => complete(StatusCodes.InternalServerError, ErreurReponse(ex.getMessage))
           }

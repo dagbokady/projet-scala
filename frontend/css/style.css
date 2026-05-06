@@ -822,3 +822,76 @@ select.input { cursor: pointer; padding-right: 28px;
 /* Indicateur de statut API dans le footer/header */
 #api-status.ok { color: var(--green); }
 #api-status.ko { color: var(--red); }
+
+/* ===================== Sections de navigation ===================== */
+.nav-section {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  padding: 16px 16px 6px;
+  margin-top: 8px;
+}
+.nav-section:first-child { margin-top: 0; }
+
+/* ===================== Grille 2 colonnes ===================== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ===================== Groupe de boutons ===================== */
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+/* ===================== Liste de risque ===================== */
+.risk-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.risk-row:last-child { border-bottom: none; }
+.risk-mat {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 13px;
+  color: var(--ink);
+  min-width: 90px;
+}
+.risk-name { flex: 1; font-weight: 500; }
+.risk-motifs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.risk-motif {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(180, 70, 50, 0.1);
+  color: var(--terracotta);
+}
+
+/* ===================== Liste d'export ===================== */
+.export-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 12px;
+}
+.export-item .export-label { color: var(--muted); }
+.export-item .export-path  { color: var(--ink); word-break: break-all; }

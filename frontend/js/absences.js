@@ -31,8 +31,8 @@
     const lignes = etatAbs.filter(a => {
       const okSearch = !recherche || (a.matricule || '').toLowerCase().includes(recherche);
       const okJust = !filtre
-        || (filtre === 'oui' && a.justifiee)
-        || (filtre === 'non' && !a.justifiee);
+          || (filtre === 'oui' && a.justifiee)
+          || (filtre === 'non' && !a.justifiee);
       return okSearch && okJust;
     });
 
@@ -43,23 +43,23 @@
 
     tbody.innerHTML = lignes.map(a => {
       const justifBadge = a.justifiee
-        ? '<span class="badge badge-ok">Justifiée</span>'
-        : '<span class="badge badge-bad">Non justifiée</span>';
+          ? '<span class="badge badge-ok">Justifiée</span>'
+          : '<span class="badge badge-bad">Non justifiée</span>';
       const btnJustifier = a.justifiee ? ''
-        : '<button class="btn btn-sm" data-action="just-abs" data-id="'
+          : '<button class="btn btn-sm" data-action="just-abs" data-id="'
           + utils.escapeHtml(a.idAbsence) + '">Justifier</button> ';
       return '<tr>'
-        + '<td><code>' + utils.escapeHtml(a.idAbsence) + '</code></td>'
-        + '<td>' + utils.escapeHtml(a.matricule) + '<br><span class="muted">'
-            + utils.escapeHtml(utils.nomEtudiant(a.matricule)) + '</span></td>'
-        + '<td>' + utils.escapeHtml(utils.nomMatiere(a.idMatiere)) + '</td>'
-        + '<td>' + utils.formatDate(a.dateAbsence) + '</td>'
-        + '<td class="num">' + (a.heures ?? '—') + ' h</td>'
-        + '<td>' + justifBadge + '</td>'
-        + '<td>' + btnJustifier
-            + '<button class="btn btn-sm btn-danger" data-action="del-abs" data-id="'
-            + utils.escapeHtml(a.idAbsence) + '">Suppr.</button></td>'
-        + '</tr>';
+          + '<td><code>' + utils.escapeHtml(a.idAbsence) + '</code></td>'
+          + '<td>' + utils.escapeHtml(a.matricule) + '<br><span class="muted">'
+          + utils.escapeHtml(utils.nomEtudiant(a.matricule)) + '</span></td>'
+          + '<td>' + utils.escapeHtml(utils.nomMatiere(a.matiere)) + '</td>'
+          + '<td>' + utils.formatDate(a.dateAbsence) + '</td>'
+          + '<td class="num">' + (a.heures ?? '—') + ' h</td>'
+          + '<td>' + justifBadge + '</td>'
+          + '<td>' + btnJustifier
+          + '<button class="btn btn-sm btn-danger" data-action="del-abs" data-id="'
+          + utils.escapeHtml(a.idAbsence) + '">Suppr.</button></td>'
+          + '</tr>';
     }).join('');
   }
 
@@ -83,15 +83,15 @@
         return;
       }
       tbody.innerHTML = data.map(d =>
-        '<tr>'
-        + '<td><code>' + utils.escapeHtml(d.matricule) + '</code></td>'
-        + '<td>' + utils.escapeHtml(utils.nomEtudiant(d.matricule)) + '</td>'
-        + '<td class="num"><span class="badge badge-bad">' + d.heures + ' h</span></td>'
-        + '</tr>'
+          '<tr>'
+          + '<td><code>' + utils.escapeHtml(d.matricule) + '</code></td>'
+          + '<td>' + utils.escapeHtml(utils.nomEtudiant(d.matricule)) + '</td>'
+          + '<td class="num"><span class="badge badge-bad">' + d.heures + ' h</span></td>'
+          + '</tr>'
       ).join('');
     } catch (e) {
       tbody.innerHTML = '<tr><td colspan="3" class="empty">Erreur : '
-        + utils.escapeHtml(e.message) + '</td></tr>';
+          + utils.escapeHtml(e.message) + '</td></tr>';
     }
   }
 
@@ -108,10 +108,10 @@
       wrap.innerHTML = data.map(d => {
         const pct = Math.max(0, Math.min(100, (d.taux / max) * 100));
         return '<div class="bar-row">'
-          + '<div class="bar-label">' + utils.escapeHtml(d.filiere) + '</div>'
-          + '<div class="bar-track"><div class="bar-fill" style="width:' + pct.toFixed(1) + '%"></div></div>'
-          + '<div class="bar-value">' + utils.formatNum(d.taux) + ' h/étud.</div>'
-          + '</div>';
+            + '<div class="bar-label">' + utils.escapeHtml(d.filiere) + '</div>'
+            + '<div class="bar-track"><div class="bar-fill" style="width:' + pct.toFixed(1) + '%"></div></div>'
+            + '<div class="bar-value">' + utils.formatNum(d.taux) + ' h/étud.</div>'
+            + '</div>';
       }).join('');
     } catch (e) {
       wrap.innerHTML = '<div class="empty">Erreur : ' + utils.escapeHtml(e.message) + '</div>';
@@ -120,36 +120,36 @@
 
   function ouvrirFormulaire() {
     const optEtu = (utils.refCache.etudiants || []).map(e =>
-      '<option value="' + utils.escapeHtml(e.matricule) + '">'
-      + utils.escapeHtml(e.matricule + ' — ' + e.prenom + ' ' + e.nom) + '</option>'
+        '<option value="' + utils.escapeHtml(e.matricule) + '">'
+        + utils.escapeHtml(e.matricule + ' — ' + e.prenom + ' ' + e.nom) + '</option>'
     ).join('');
     const optMat = (utils.refCache.matieres || []).map(m =>
-      '<option value="' + utils.escapeHtml(m.idMatiere) + '">'
-      + utils.escapeHtml(m.nomMatiere) + '</option>'
+        '<option value="' + utils.escapeHtml(m.idMatiere) + '">'
+        + utils.escapeHtml(m.nomMatiere) + '</option>'
     ).join('');
     const aujourdhui = new Date().toISOString().substring(0, 10);
 
     const html =
-      '<form id="form-abs">'
-      + '<div class="form-row">'
-      +   '<div class="form-group"><label class="form-label">Étudiant</label>'
-      +     '<select class="form-select" name="matricule" required>' + optEtu + '</select></div>'
-      +   '<div class="form-group"><label class="form-label">Matière</label>'
-      +     '<select class="form-select" name="idMatiere" required>' + optMat + '</select></div>'
-      + '</div>'
-      + '<div class="form-row">'
-      +   '<div class="form-group"><label class="form-label">Date</label>'
-      +     '<input class="form-input" type="date" name="dateAbsence" value="' + aujourdhui + '" required></div>'
-      +   '<div class="form-group"><label class="form-label">Heures</label>'
-      +     '<input class="form-input" type="number" name="heures" min="1" max="12" step="1" value="2" required></div>'
-      + '</div>'
-      + '<div class="form-group checkbox-row">'
-      +   '<label><input type="checkbox" name="justifiee"> Absence justifiée</label>'
-      + '</div>'
-      + '<div class="form-actions">'
-      +   '<button type="button" class="btn btn-ghost" data-close-modal>Annuler</button>'
-      +   '<button type="submit" class="btn btn-primary">Enregistrer</button>'
-      + '</div></form>';
+        '<form id="form-abs">'
+        + '<div class="form-row">'
+        +   '<div class="form-group"><label class="form-label">Étudiant</label>'
+        +     '<select class="form-select" name="matricule" required>' + optEtu + '</select></div>'
+        +   '<div class="form-group"><label class="form-label">Matière</label>'
+        +     '<select class="form-select" name="idMatiere" required>' + optMat + '</select></div>'
+        + '</div>'
+        + '<div class="form-row">'
+        +   '<div class="form-group"><label class="form-label">Date</label>'
+        +     '<input class="form-input" type="date" name="dateAbsence" value="' + aujourdhui + '" required></div>'
+        +   '<div class="form-group"><label class="form-label">Heures</label>'
+        +     '<input class="form-input" type="number" name="heures" min="1" max="12" step="1" value="2" required></div>'
+        + '</div>'
+        + '<div class="form-group checkbox-row">'
+        +   '<label><input type="checkbox" name="justifiee"> Absence justifiée</label>'
+        + '</div>'
+        + '<div class="form-actions">'
+        +   '<button type="button" class="btn btn-ghost" data-close-modal>Annuler</button>'
+        +   '<button type="submit" class="btn btn-primary">Enregistrer</button>'
+        + '</div></form>';
 
     utils.openModal('Nouvelle absence', html);
 
@@ -158,7 +158,7 @@
       const f = ev.target;
       const payload = {
         matricule: f.matricule.value,
-        idMatiere: f.idMatiere.value,
+        matiere: f.idMatiere.value,
         dateAbsence: f.dateAbsence.value,
         heures: Number(f.heures.value),
         justifiee: f.justifiee.checked

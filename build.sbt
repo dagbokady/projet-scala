@@ -40,3 +40,9 @@ scalacOptions ++= Seq(
 
 // Point d'entrée principal
 Compile / mainClass := Some("universite.Main")
+
+// IMPORTANT : fork une nouvelle JVM pour que le serveur ne s'arrête pas
+// dès que sbt rend la main, et permet de l'arrêter avec Ctrl+C proprement.
+Compile / run / fork := true
+Compile / run / connectInput := true
+outputStrategy := Some(StdoutOutput)
