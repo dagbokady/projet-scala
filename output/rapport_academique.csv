@@ -1,12 +1,101 @@
 matricule,nom,prenom,filiere,niveau,moyenne,decision,heures_absence,reste_a_payer
-ETU001,KOFFI,Jean,Informatique,M1,"13,55",Admis,2,1296000
+ETU001,KOFFI,Jean,Informatique,M1,"14,13",Admis,6,300000
 ETU002,KOUAME,Aya,Informatique,M1,"10,77",Admis,0,0
-ETU003,TRAORE,Moussa,Data Science,M1,"15,70",Admis,4,600000
-ETU004,DIABATE,Fatou,Cybersecurite,M1,"12,90",Admis,2,300000
-ETU005,AKA,Eric,Informatique,M2,"17,60",Admis,0,0
+ETU003,TRAORE,Moussa,Data Science,M1,"15,70",Admis,12,600000
+ETU004,DIABATE,Fatou,Cybersecurite,M1,"12,90",Admis,8,300000
+ETU005,AKA,Eric,Informatique,M2,"17,60",Admis,6,0
 ETU006,YAO,Clarisse,Data Science,M1,"13,20",Admis,4,700000
 ETU007,NGUESSAN,Paul,Cybersecurite,M2,"8,60",Ajourne,6,1200000
 ETU008,COULIBALY,Mariam,Informatique,M1,"13,00",Admis,2,200000
-ETU009,BAMBA,Serge,Data Science,M2,"17,20",Admis,0,500000
-ETU010,GNAGNE,Estelle,Cybersecurite,M1,"15,60",Admis,4,0
-ETU011,DAGBO,K.,Cybersecurite,L1,,--,0,0
+ETU009,BAMBA,Serge,Data Science,M2,"17,20",Admis,4,500000
+ETU010,GNAGNE,Estelle,Cybersecurite,M1,"15,60",Admis,8,0
+ETU011,KAMARA,Jean,Data Science,L2,,--,0,49000
+ETU012,YAPO,Kevin,Informatique,L1,,--,0,468000
+ETU013,YAPO,Jules,Informatique,M1,,--,6,389000
+ETU014,AKA,Emma,Informatique,L3,,--,5,1019000
+ETU015,KAMARA,Fatou,Data Science,M2,,--,7,1045000
+ETU016,ISSA,Carine,Informatique,L1,,--,6,237000
+ETU017,BAMBA,Boris,Data Science,L3,,--,6,380000
+ETU018,GORE,Luc,Informatique,M2,,--,10,339000
+ETU019,NDIAYE,Koffi,Informatique,L2,,--,0,544000
+ETU020,PAYE,Kevin,Cybersecurite,L3,,--,1,68000
+ETU021,AKA,Daniel,Informatique,M2,,--,8,741000
+ETU022,COULIBALY,Hana,Informatique,M2,,--,2,258000
+ETU023,FOFANA,Didier,Informatique,M1,,--,13,606000
+ETU024,HAIDARA,Eric,Cybersecurite,L3,,--,4,357000
+ETU025,KOFFI,Fabrice,Cybersecurite,L3,,--,8,400000
+ETU026,FOFANA,Mia,Informatique,L2,,--,6,563000
+ETU027,OUATTARA,Luc,Data Science,L1,,--,2,331000
+ETU028,TRAORE,Kevin,Informatique,M1,,--,0,874000
+ETU029,YAO,Nina,Data Science,M2,,--,0,813000
+ETU030,HAIDARA,Iris,Cybersecurite,L3,,--,3,153000
+ETU031,OUATTARA,Moussa,Informatique,M2,,--,0,410000
+ETU032,TRAORE,Michel,Informatique,L3,,--,6,476000
+ETU033,AKA,Jules,Cybersecurite,M2,,--,7,105000
+ETU034,DIABATE,Eric,Cybersecurite,M1,,--,2,116000
+ETU035,ADOU,Kofi,Cybersecurite,L3,,--,7,553000
+ETU036,YAPO,Estelle,Informatique,L3,,--,0,269000
+ETU037,GORE,Kofi,Cybersecurite,L1,,--,3,241000
+ETU038,OULAI,Carine,Data Science,L1,,--,1,18000
+ETU039,ISSA,Julie,Cybersecurite,M2,,--,8,484000
+ETU040,DEMBELE,Kofi,Cybersecurite,M2,,--,3,209000
+ETU041,QUAYE,Mia,Cybersecurite,L2,,--,4,144000
+ETU042,TRAORE,Luc,Cybersecurite,L2,,--,0,313000
+ETU043,TRAORE,Luc,Data Science,M2,,--,4,334000
+ETU044,BAMBA,Diane,Data Science,L2,,--,0,52000
+ETU045,FOFANA,Fabrice,Cybersecurite,L1,,--,7,151000
+ETU046,PAYE,Clarisse,Informatique,L3,,--,0,114000
+ETU047,GNAGNE,Jules,Cybersecurite,L1,,--,5,354000
+ETU048,GNAGNE,Daniel,Cybersecurite,L2,,--,6,380000
+ETU049,PAYE,Emma,Informatique,L1,,--,10,89000
+ETU050,YAO,Daniel,Cybersecurite,M1,,--,0,1033000
+ETU051,CISSE,Paul,Informatique,L3,,--,0,5000
+ETU052,PAYE,Hana,Informatique,L3,,--,3,706000
+ETU053,QUAYE,Estelle,Informatique,L2,,--,2,771000
+ETU054,MANDE,Julie,Cybersecurite,L2,,--,6,230000
+ETU055,NGUESSAN,Diane,Data Science,L3,,--,14,559000
+ETU056,OUATTARA,Boris,Data Science,L1,,--,6,336000
+ETU057,OUATTARA,Nina,Informatique,L1,,--,0,154000
+ETU058,FOFANA,Eric,Data Science,L3,,--,1,976000
+ETU059,PAYE,Boris,Cybersecurite,L2,,--,0,385000
+ETU060,YAPO,Ange,Informatique,L3,,--,0,251000
+ETU061,OUATTARA,Julie,Data Science,L3,,--,0,392000
+ETU062,DEMBELE,Luc,Data Science,M1,,--,8,403000
+ETU063,TOURE,Grace,Data Science,M1,,--,8,58000
+ETU064,BALLO,Yao,Cybersecurite,M2,,--,12,681000
+ETU065,KOFFI,Paul,Informatique,L2,,--,0,506000
+ETU066,DIALLO,Boris,Data Science,L2,,--,0,85000
+ETU067,YAO,Diane,Cybersecurite,M2,,--,8,740000
+ETU068,MANDE,Estelle,Data Science,M2,,--,10,645000
+ETU069,TOURE,Nina,Informatique,M1,,--,4,7000
+ETU070,BAMBA,Diane,Data Science,L1,,--,1,666000
+ETU071,AKA,Paul,Informatique,M1,,--,4,551000
+ETU072,CISSE,Grace,Data Science,M1,,--,3,672000
+ETU073,ADOU,Kevin,Data Science,L1,,--,0,312000
+ETU074,COULIBALY,Guy,Data Science,M1,,--,0,201000
+ETU075,QUAYE,Fabrice,Informatique,M2,,--,10,774000
+ETU076,GORE,Moussa,Data Science,L2,,--,0,512000
+ETU077,TOURE,Carine,Data Science,L3,,--,8,659000
+ETU078,DIALLO,Clarisse,Informatique,M2,,--,6,407000
+ETU079,COULIBALY,Jean,Informatique,L1,,--,5,553000
+ETU080,NGUESSAN,Kevin,Data Science,L3,,--,4,353000
+ETU081,DIABATE,Yao,Cybersecurite,L1,,--,0,440000
+ETU082,DEMBELE,Moussa,Cybersecurite,L2,,--,0,372000
+ETU083,CISSE,Ange,Data Science,L3,,--,0,242000
+ETU084,YAPO,Mariam,Data Science,M1,,--,6,793000
+ETU085,LAMINE,Nina,Data Science,M1,,--,2,190000
+ETU086,BAMBA,Moussa,Data Science,L2,,--,3,79000
+ETU087,DIALLO,Aya,Data Science,L2,,--,4,668000
+ETU088,KOFFI,Nina,Cybersecurite,L2,,--,0,814000
+ETU089,GORE,Guy,Cybersecurite,M1,,--,3,146000
+ETU090,GNAGNE,Diane,Cybersecurite,M2,,--,5,544000
+ETU091,ISSA,Hana,Data Science,L3,,--,6,141000
+ETU092,KAMARA,Mariam,Cybersecurite,L2,,--,0,1042000
+ETU093,NDIAYE,Mariam,Informatique,L3,,--,17,375000
+ETU094,KOUAME,Daniel,Informatique,M2,,--,0,595000
+ETU095,DEMBELE,Jean,Data Science,M1,,--,16,306000
+ETU096,NDIAYE,Mariam,Informatique,M1,,--,8,159000
+ETU097,MANDE,Paul,Cybersecurite,L3,,--,0,406000
+ETU098,ADOU,Henri,Data Science,M1,,--,3,535000
+ETU099,KAMARA,Luc,Informatique,L2,,--,2,455000
+ETU100,CISSE,Serge,Informatique,L2,,--,3,254000
