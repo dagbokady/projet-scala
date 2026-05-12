@@ -237,15 +237,21 @@
 
     function lirePayload() {
       const f = document.getElementById('form-seance');
+
       return {
-        idMatiere:    f.idMatiere.value,
-        idEnseignant: f.idEnseignant.value,
-        idSalle:      f.idSalle.value,
-        jour:         f.jour.value,
-        heureDebut:   f.heureDebut.value + ':00',
-        heureFin:     f.heureFin.value + ':00',
-        filiere:      f.filiere.value,
-        niveau:       f.niveau.value
+        idSeance: "",
+
+        matiere: f.idMatiere.value,
+        enseignant: f.idEnseignant.value,
+        salle: f.idSalle.value,
+
+        jour: f.jour.value,
+
+        heureDebut: f.heureDebut.value,
+        heureFin: f.heureFin.value,
+
+        filiere: f.filiere.value,
+        niveau: f.niveau.value
       };
     }
 

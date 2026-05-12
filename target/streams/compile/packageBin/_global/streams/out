@@ -160,6 +160,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/darkvdy/Desktop/gestion-universitaire-scala/target/scala-2.13/classes/universite/api/JsonFormats$MapStringDoubleFormat$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	universite/api/SeanceRoutes.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/darkvdy/Desktop/gestion-universitaire-scala/target/scala-2.13/classes/universite/api/SeanceRoutes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	universite/api/JsonFormats$SeanceFormat$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/darkvdy/Desktop/gestion-universitaire-scala/target/scala-2.13/classes/universite/api/JsonFormats$SeanceFormat$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	universite/api/ReferentielRoutes$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/darkvdy/Desktop/gestion-universitaire-scala/target/scala-2.13/classes/universite/api/ReferentielRoutes$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	universite/api/JsonFormats$ConflitInfo.class[0m
@@ -194,6 +196,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/darkvdy/Desktop/gestion-universitaire-scala/target/scala-2.13/classes/universite/api/JsonFormats$MapStringIntFormat$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	universite/api/JsonFormats$EtudiantFormat$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/darkvdy/Desktop/gestion-universitaire-scala/target/scala-2.13/classes/universite/api/JsonFormats$EtudiantFormat$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	universite/api/JsonFormats$AbsenceFormat$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/darkvdy/Desktop/gestion-universitaire-scala/target/scala-2.13/classes/universite/api/JsonFormats$AbsenceFormat$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	universite/api/JsonFormats$PaiementFormat$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /Users/darkvdy/Desktop/gestion-universitaire-scala/target/scala-2.13/classes/universite/api/JsonFormats$PaiementFormat$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	universite/api/SeanceRoutes$.class[0m

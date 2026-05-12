@@ -4,6 +4,7 @@
 // table avec filtre justifiée/non, alerte, stats par filière, modal,
 // bouton "justifier" inline (PATCH).
 
+
 (function () {
   let etatAbs = [];
 
@@ -157,6 +158,7 @@
       ev.preventDefault();
       const f = ev.target;
       const payload = {
+        idAbsence: 'auto',
         matricule: f.matricule.value,
         matiere: f.idMatiere.value,
         dateAbsence: f.dateAbsence.value,

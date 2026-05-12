@@ -6,13 +6,13 @@ import java.time.LocalDate
  * Absence d'un etudiant a une seance de cours pour une matiere donnee.
  */
 case class Absence(
-  idAbsence:    String,
-  matricule:    String,
-  matiere:      String,
-  dateAbsence:  LocalDate,
-  heures:       Int,
-  justifiee:    Boolean
-) extends Identifiable with Validable with Affichable {
+                    idAbsence:   String = "",
+                    matricule:   String,
+                    matiere:     String,
+                    dateAbsence: LocalDate,
+                    heures:      Int,
+                    justifiee:   Boolean = false
+                  ) extends Identifiable with Validable with Affichable {
 
   override def id: String = idAbsence
 

@@ -10,7 +10,7 @@ import java.time.LocalTime
  * plages horaires qui se chevauchent.
  */
 case class SeanceCours(
-  idSeance:    String,
+  idSeance:    String = "",
   matiere:     String,
   enseignant:  String,
   salle:       String,

@@ -1,0 +1,12 @@
+matricule,nom,prenom,filiere,niveau,moyenne,decision,heures_absence,reste_a_payer
+ETU001,KOFFI,Jean,Informatique,M1,"13,55",Admis,2,1296000
+ETU002,KOUAME,Aya,Informatique,M1,"10,77",Admis,0,0
+ETU003,TRAORE,Moussa,Data Science,M1,"15,70",Admis,4,600000
+ETU004,DIABATE,Fatou,Cybersecurite,M1,"12,90",Admis,2,300000
+ETU005,AKA,Eric,Informatique,M2,"17,60",Admis,0,0
+ETU006,YAO,Clarisse,Data Science,M1,"13,20",Admis,4,700000
+ETU007,NGUESSAN,Paul,Cybersecurite,M2,"8,60",Ajourne,6,1200000
+ETU008,COULIBALY,Mariam,Informatique,M1,"13,00",Admis,2,200000
+ETU009,BAMBA,Serge,Data Science,M2,"17,20",Admis,0,500000
+ETU010,GNAGNE,Estelle,Cybersecurite,M1,"15,60",Admis,4,0
+ETU011,DAGBO,K.,Cybersecurite,L1,,--,0,0

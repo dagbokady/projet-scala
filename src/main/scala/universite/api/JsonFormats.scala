@@ -158,10 +158,84 @@ object JsonFormats extends DefaultJsonProtocol {
   }
 
   // ---------- Absence ----------
-  implicit val absenceFormat: RootJsonFormat[Absence] = jsonFormat6(Absence)
+  implicit object AbsenceFormat extends RootJsonFormat[Absence] {
+
+    override def write(a: Absence): JsValue = JsObject(
+      "idAbsence"   -> JsString(a.idAbsence),
+      "matricule"   -> JsString(a.matricule),
+      "matiere"     -> JsString(a.matiere),
+      "dateAbsence" -> a.dateAbsence.toJson,
+      "heures"      -> JsNumber(a.heures),
+      "justifiee"   -> JsBoolean(a.justifiee)
+    )
+
+    override def read(v: JsValue): Absence = {
+      val o = v.asJsObject
+
+      Absence(
+        idAbsence = o.fields.get("idAbsence") match {
+          case Some(JsString(s)) => s
+          case _                 => ""
+        },
+
+        matricule = o.fields("matricule").convertTo[String],
+
+        matiere = o.fields("matiere").convertTo[String],
+
+        dateAbsence = o.fields("dateAbsence").convertTo[LocalDate],
+
+        heures = o.fields("heures").convertTo[Int],
+
+        justifiee = o.fields.get("justifiee") match {
+          case Some(JsBoolean(b)) => b
+          case _                  => false
+        }
+      )
+    }
+  }
 
   // ---------- SeanceCours ----------
-  implicit val seanceFormat: RootJsonFormat[SeanceCours] = jsonFormat9(SeanceCours)
+  implicit object SeanceFormat extends RootJsonFormat[SeanceCours] {
+
+    override def write(s: SeanceCours): JsValue = JsObject(
+      "idSeance"   -> JsString(s.idSeance),
+      "matiere"    -> JsString(s.matiere),
+      "enseignant" -> JsString(s.enseignant),
+      "salle"      -> JsString(s.salle),
+      "filiere"    -> JsString(s.filiere),
+      "niveau"     -> JsString(s.niveau),
+      "jour"       -> JsString(s.jour),
+      "heureDebut" -> s.heureDebut.toJson,
+      "heureFin"   -> s.heureFin.toJson
+    )
+
+    override def read(v: JsValue): SeanceCours = {
+      val o = v.asJsObject
+
+      SeanceCours(
+        idSeance = o.fields.get("idSeance") match {
+          case Some(JsString(s)) => s
+          case _                 => ""
+        },
+
+        matiere = o.fields("matiere").convertTo[String],
+
+        enseignant = o.fields("enseignant").convertTo[String],
+
+        salle = o.fields("salle").convertTo[String],
+
+        filiere = o.fields("filiere").convertTo[String],
+
+        niveau = o.fields("niveau").convertTo[String],
+
+        jour = o.fields("jour").convertTo[String],
+
+        heureDebut = o.fields("heureDebut").convertTo[LocalTime],
+
+        heureFin = o.fields("heureFin").convertTo[LocalTime]
+      )
+    }
+  }
 
   // ---------- Enveloppes API ----------
   case class ErreurReponse(erreur: String, details: Option[String] = None)
